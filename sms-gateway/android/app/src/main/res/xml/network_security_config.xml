@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android's network security config cannot express IP ranges (10.x, 172.16-31.x, 192.168.x),
+  so cleartext HTTP is permitted at the OS level here and RESTRICTED IN CODE: see
+  NetRules.isPrivateHost() and the interceptor in Api.kt, which refuse http:// to any host
+  that is not loopback / private LAN / link-local / a ".local" or single-label name.
+  HTTPS to any host is unaffected.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
